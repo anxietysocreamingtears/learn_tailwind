@@ -2,6 +2,12 @@ import { defineConfig } from 'vite'
 import { fileURLToPath } from 'node:url'
 
 export default defineConfig({
+  base: './',
+  experimental: {
+    renderBuiltUrl() {
+      return { relative: true }
+    },
+  },
   build: {
     rollupOptions: {
       input: {
