@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+@layer components {
+  .site-shell {
+    @apply relative flex min-h-screen flex-col overflow-hidden bg-[#0a1018] text-slate-100;
+  }
+
+  .site-bg {
+    @apply pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_88%,rgba(50,66,88,0.5),transparent_34%),radial-gradient(circle_at_76%_24%,rgba(59,77,104,0.24),transparent_28%),linear-gradient(180deg,#242d3b_0%,#151d2a_48%,#091019_100%)];
+  }
+
+  .site-header {
+    @apply relative z-10 border-b border-white/10 bg-white/[0.02];
+  }
+
+  .site-nav {
+    @apply flex items-center justify-between px-6 py-[10px] sm:px-12;
+  }
+
+  .site-brand {
+    @apply text-[13px] font-semibold text-white;
+  }
+
+  .nav-list {
+    @apply flex items-center gap-4 text-[12px] text-slate-200 sm:gap-[18px];
+  }
+
+  .nav-link {
+    @apply transition hover:text-white;
+  }
+
+  .nav-link-active {
+    @apply text-white;
+  }
+
+  .page-main {
+    @apply relative z-10 flex-1 px-4;
+  }
+
+  .page-hero {
+    @apply mx-auto flex max-w-[560px] flex-col items-center pt-[50px] text-center;
+  }
+
+  .page-hero-wide {
+    @apply max-w-[760px];
+  }
+
+  .page-title {
+    @apply text-[28px] font-bold leading-none tracking-[-0.02em] text-white sm:text-[29px];
+  }
+
+  .page-subtitle {
+    @apply mt-[9px] text-[12px] text-slate-400;
+  }
+
+  .hero-button {
+    @apply mt-[18px] inline-flex h-[30px] items-center rounded-[5px] bg-gradient-to-r from-blue-500 to-fuchsia-500 px-[16px] text-[11px] font-semibold text-white shadow-[0_8px_18px_rgba(61,107,216,0.22)] transition hover:brightness-110;
+  }
+
+  .hero-grid {
+    @apply mt-[52px] grid justify-center gap-4 sm:grid-cols-[repeat(3,162px)];
+  }
+
+  .hero-card {
+    @apply min-h-[70px] rounded-[8px] border border-white/10 bg-white/[0.08] px-4 py-[14px] text-left shadow-[inset_0_1px_0_rgba(255,255,255,0.05)];
+  }
+
+  .hero-card-title {
+    @apply text-[13px] font-semibold text-white;
+  }
+
+  .hero-card-text {
+    @apply mt-[8px] text-[11px] leading-[18px] text-slate-300;
+  }
+
+  .content-grid {
+    @apply mt-[42px] grid w-full max-w-[720px] gap-4 sm:grid-cols-2;
+  }
+
+  .content-card {
+    @apply rounded-[8px] border border-white/10 bg-white/[0.08] px-5 py-[18px] text-left shadow-[inset_0_1px_0_rgba(255,255,255,0.05)];
+  }
+
+  .content-card-wide {
+    @apply sm:col-span-2;
+  }
+
+  .content-title {
+    @apply text-[15px] font-semibold text-white;
+  }
+
+  .content-text {
+    @apply mt-[10px] text-[12px] leading-6 text-slate-300;
+  }
+
+  .content-list {
+    @apply mt-[10px] space-y-2 text-[12px] leading-6 text-slate-300;
+  }
+
+  .content-link {
+    @apply text-slate-200 transition hover:text-white;
+  }
+
+  .site-footer {
+    @apply relative z-10 border-t border-white/10 bg-black/[0.08];
+  }
+
+  .site-footer-text {
+    @apply px-4 py-[11px] text-center text-[11px] text-slate-400;
+  }
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
