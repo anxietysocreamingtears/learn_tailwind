@@ -4,60 +4,315 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="О подходе MySite: современный дизайн, аккуратная вёрстка на Tailwind и анимация, которая выглядит естественно."
+    />
     <title>О нас | MySite</title>
+    <script>
+      (() => {
+        try {
+          const savedTheme = localStorage.getItem('mysite-theme-preference')
+          const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches
+
+          if (savedTheme === 'light' || (!savedTheme && prefersLight)) {
+            document.documentElement.classList.add('theme-light')
+          }
+        } catch {}
+      })()
+    </script>
   </head>
   <body class="antialiased">
     <div class="site-shell">
       <div class="site-bg"></div>
 
       <header class="site-header">
-        <nav class="site-nav">
-          <a href="./index.html" class="site-brand">MySite</a>
+        <div class="site-header-inner">
+          <a href="./index.html" class="site-brand" aria-label="MySite — на главную">
+            <span class="site-brand-mark">MS</span>
+            <span class="site-brand-copy">
+              <strong>MySite</strong>
+              <span>Tailwind studio</span>
+            </span>
+          </a>
 
-          <ul class="nav-list">
-            <li><a href="./index.html" class="nav-link">Главная</a></li>
-            <li><a href="./about.html" class="nav-link nav-link-active">О нас</a></li>
-            <li><a href="./contacts.html" class="nav-link">Контакты</a></li>
-          </ul>
-        </nav>
+          <nav class="site-nav" aria-label="Основная навигация">
+            <a href="./index.html" class="nav-link">Главная</a>
+            <a href="./about.html" class="nav-link" aria-current="page">О нас</a>
+            <a href="./contacts.html" class="nav-link">Контакты</a>
+          </nav>
+
+          <button
+            class="theme-toggle"
+            type="button"
+            data-theme-toggle
+            aria-label="Переключить тему сайта"
+            aria-pressed="false"
+          >
+            <span class="theme-toggle-track" aria-hidden="true">
+              <svg class="theme-toggle-icon theme-toggle-icon-sun" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="4.25"></circle>
+                <path d="M12 2.5v2.25"></path>
+                <path d="M12 19.25v2.25"></path>
+                <path d="m5.28 5.28 1.6 1.6"></path>
+                <path d="m17.12 17.12 1.6 1.6"></path>
+                <path d="M2.5 12h2.25"></path>
+                <path d="M19.25 12h2.25"></path>
+                <path d="m5.28 18.72 1.6-1.6"></path>
+                <path d="m17.12 6.88 1.6-1.6"></path>
+              </svg>
+              <svg class="theme-toggle-icon theme-toggle-icon-moon" viewBox="0 0 24 24">
+                <path d="M20.2 14.6A8.7 8.7 0 1 1 9.4 3.8a7 7 0 0 0 10.8 10.8Z"></path>
+              </svg>
+            </span>
+            <span class="theme-toggle-copy">
+              <span class="theme-toggle-title">Тема</span>
+              <span class="theme-toggle-label" data-theme-label>тёмная</span>
+            </span>
+          </button>
+        </div>
       </header>
 
       <main class="page-main">
-        <section class="page-hero page-hero-wide">
-          <h1 class="page-title">О нас</h1>
-          <p class="page-subtitle">Делаем понятные сайты и аккуратные интерфейсы в том же стиле</p>
-
-          <div class="content-grid">
-            <article class="content-card">
-              <h2 class="content-title">Чем занимаемся</h2>
-              <p class="content-text">
-                Собираем лендинги, учебные проекты и небольшие сайты, где важны
-                чистая структура, адаптивность и читаемый интерфейс.
+        <section class="section hero-section">
+          <div class="hero-layout">
+            <div class="reveal-item" data-reveal>
+              <span class="eyebrow">О студии и подходе</span>
+              <h1 class="hero-title">
+                Мы собираем сайты, которые
+                <span class="accent-text">выглядят спокойно, но дорого</span>
+              </h1>
+              <p class="hero-text">
+                Нам ближе интерфейсы с характером и дисциплиной: когда каждая секция имеет смысл,
+                движение не отвлекает, а Tailwind помогает быстро довести идею до рабочего результата.
               </p>
-            </article>
 
-            <article class="content-card">
-              <h2 class="content-title">Как работаем</h2>
-              <p class="content-text">
-                Начинаем с простой композиции, затем доводим типографику,
-                интервалы, цвета и поведение элементов до аккуратного результата.
+              <div class="hero-actions">
+                <a href="./contacts.html" class="button-primary">Связаться с нами</a>
+                <a href="./index.html#process" class="button-secondary">Посмотреть процесс</a>
+              </div>
+            </div>
+
+            <div class="story-grid">
+              <article class="story-card reveal-item" data-reveal style="--delay: 120ms">
+                <span class="inline-pill inline-pill-strong">Фокус</span>
+                <h2 class="story-title">Не усложнять там, где можно сделать точнее</h2>
+                <p class="story-text">
+                  Вместо декоративного шума мы собираем интерфейс вокруг смысла: что читает человек,
+                  что он должен понять за первые секунды и что должно запомниться после просмотра.
+                </p>
+                <p class="story-quote">
+                  «Хороший редизайн не кричит о себе. Он делает так, что сайтом просто приятно пользоваться».
+                </p>
+              </article>
+
+              <article class="story-card reveal-item" data-reveal style="--delay: 180ms">
+                <span class="inline-pill">Что важно</span>
+                <h2 class="story-title">Код и визуал собираются параллельно</h2>
+                <p class="story-text">
+                  Мы не разводим дизайн и вёрстку по разным мирам. Tailwind позволяет быстро проверять,
+                  как идеи работают в реальном браузере и на реальных размерах экрана.
+                </p>
+                <ul class="card-list">
+                  <li>адаптивность учитывается с первого блока</li>
+                  <li>цвет и контраст тестируются сразу в двух темах</li>
+                  <li>анимация встраивается в логику страницы, а не добавляется поверх</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section-stack">
+          <div class="section-head reveal-item" data-reveal>
+            <p class="section-kicker">Наши принципы</p>
+            <h2 class="section-title">Три вещи, на которых держится хороший современный сайт</h2>
+            <p class="section-text">
+              Эти принципы помогают держать баланс между красотой, читабельностью и ощущением живого продукта.
+            </p>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card reveal-item" data-reveal style="--delay: 70ms">
+              <span class="feature-index">Ритм</span>
+              <h3 class="feature-title">Чёткая композиция</h3>
+              <p class="feature-text">
+                Заголовки, карточки и промежутки должны работать как единая система, а не как набор случайных блоков.
               </p>
-            </article>
-
-            <article class="content-card content-card-wide">
-              <h2 class="content-title">Наш подход</h2>
-              <ul class="content-list">
-                <li>Используем Tailwind для быстрой и понятной верстки.</li>
-                <li>Сохраняем единый визуальный стиль на всех страницах.</li>
-                <li>Стараемся, чтобы код оставался удобным для дальнейших правок.</li>
+              <ul class="card-list">
+                <li>понятный порядок чтения</li>
+                <li>воздух между секциями</li>
+                <li>честный визуальный приоритет</li>
               </ul>
             </article>
+
+            <article class="feature-card reveal-item" data-reveal style="--delay: 130ms">
+              <span class="feature-index">Тон</span>
+              <h3 class="feature-title">Цвет с характером</h3>
+              <p class="feature-text">
+                Мы избегаем стерильности и кислотных оттенков, чтобы сайт ощущался зрелым и уверенным.
+              </p>
+              <ul class="card-list">
+                <li>глубокая тёмная тема</li>
+                <li>тёплая светлая палитра</li>
+                <li>акценты без перегрева интерфейса</li>
+              </ul>
+            </article>
+
+            <article class="feature-card reveal-item" data-reveal style="--delay: 190ms">
+              <span class="feature-index">Движение</span>
+              <h3 class="feature-title">Естественная анимация</h3>
+              <p class="feature-text">
+                Если элемент движется, это должно помогать навигации и восприятию, а не просто демонстрировать эффект.
+              </p>
+              <ul class="card-list">
+                <li>плавные reveal-переходы</li>
+                <li>аккуратные реакции на hover</li>
+                <li>минимум лишнего шума на экране</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section section-stack" id="process">
+          <div class="section-head reveal-item" data-reveal>
+            <p class="section-kicker">Как строится работа</p>
+            <h2 class="section-title">От структуры до финального ощущения в браузере</h2>
+            <p class="section-text">
+              Подход простой: быстро определить фундамент, затем довести тон, поведение и связность всех страниц.
+            </p>
+          </div>
+
+          <div class="timeline-grid">
+            <article class="timeline-card reveal-item" data-reveal style="--delay: 60ms">
+              <span class="timeline-step">Этап 1</span>
+              <h3 class="timeline-title">Структура и сетка</h3>
+              <p class="timeline-text">
+                Определяем основные секции, ширину контейнеров, размер типографики и логику адаптива.
+              </p>
+            </article>
+
+            <article class="timeline-card reveal-item" data-reveal style="--delay: 120ms">
+              <span class="timeline-step">Этап 2</span>
+              <h3 class="timeline-title">Палитра и поверхности</h3>
+              <p class="timeline-text">
+                Настраиваем слои, глубину, панели, бордеры и свет в двух темах, чтобы сайт выглядел цельно.
+              </p>
+            </article>
+
+            <article class="timeline-card reveal-item" data-reveal style="--delay: 180ms">
+              <span class="timeline-step">Этап 3</span>
+              <h3 class="timeline-title">Контент и акценты</h3>
+              <p class="timeline-text">
+                Пересобираем тексты, визуальные акценты и кнопки так, чтобы каждая секция вела пользователя дальше.
+              </p>
+            </article>
+
+            <article class="timeline-card reveal-item" data-reveal style="--delay: 240ms">
+              <span class="timeline-step">Этап 4</span>
+              <h3 class="timeline-title">Поведение и проверка</h3>
+              <p class="timeline-text">
+                Финализируем анимации, переключение темы, мобильную версию и общее ощущение интерфейса.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section section-stack">
+          <div class="section-head reveal-item" data-reveal>
+            <p class="section-kicker">На чём строим</p>
+            <h2 class="section-title">Технологии здесь служат скорости и аккуратности</h2>
+            <p class="section-text">
+              В основе лёгкий стек без перегруза: всё быстро собирается, удобно поддерживается и легко развивается дальше.
+            </p>
+          </div>
+
+          <div class="project-grid">
+            <article class="project-card reveal-item" data-reveal style="--delay: 80ms">
+              <div>
+                <div class="project-meta">
+                  <span class="project-tag">Tailwind</span>
+                  <span class="project-tag">UI</span>
+                </div>
+                <h3 class="project-title">Компонентный визуальный слой</h3>
+                <p class="project-text">
+                  Tailwind позволяет быстро собирать интерфейс, управлять ритмом и поддерживать единый язык на всех страницах.
+                </p>
+              </div>
+              <div class="project-result">
+                <strong>fast</strong>
+                <span>быстрее от идеи к реальному рабочему экрану</span>
+              </div>
+            </article>
+
+            <article class="project-card reveal-item" data-reveal style="--delay: 140ms">
+              <div>
+                <div class="project-meta">
+                  <span class="project-tag">Vite</span>
+                  <span class="project-tag">Build</span>
+                </div>
+                <h3 class="project-title">Лёгкая и понятная сборка</h3>
+                <p class="project-text">
+                  Проект остаётся компактным и быстрым, а структура файлов не превращается в перегруженный лабиринт.
+                </p>
+              </div>
+              <div class="project-result">
+                <strong>clean</strong>
+                <span>удобно вносить правки и расширять сайт дальше</span>
+              </div>
+            </article>
+
+            <article class="project-card reveal-item" data-reveal style="--delay: 200ms">
+              <div>
+                <div class="project-meta">
+                  <span class="project-tag">Motion</span>
+                  <span class="project-tag">UX</span>
+                </div>
+                <h3 class="project-title">Анимация как часть навигации</h3>
+                <p class="project-text">
+                  Скрипт темы, появления блоков и деликатные hover-состояния добавляют сайту живое ощущение без перегруза.
+                </p>
+              </div>
+              <div class="project-result">
+                <strong>calm</strong>
+                <span>сайт ощущается живым, но не искусственным</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section section-stack">
+          <div class="cta-banner reveal-item" data-reveal>
+            <span class="eyebrow">Дальше можно расширять</span>
+            <h2 class="cta-title">Если нужно, этот каркас легко превратить в полноценный брендовый сайт</h2>
+            <p class="cta-text">
+              Можно добавлять кейсы, полноценную форму, блок с отзывами, FAQ, страницы услуг или
+              каталог, сохраняя тот же визуальный язык и логику поведения.
+            </p>
+            <div class="cta-actions">
+              <a href="./contacts.html" class="button-primary">Обсудить следующую итерацию</a>
+              <a href="./index.html" class="button-secondary">Вернуться на главную</a>
+            </div>
           </div>
         </section>
       </main>
 
       <footer class="site-footer">
-        <div class="site-footer-text">© 2026 MySite. Все права защищены.</div>
+        <div class="footer-inner">
+          <div>
+            <a href="./index.html" class="footer-brand">MySite</a>
+            <p class="footer-copy">
+              Собираем аккуратные сайты на Tailwind: с живой типографикой, продуманным движением и
+              темой, которая работает одинаково уверенно и днём, и ночью.
+            </p>
+          </div>
+
+          <div class="footer-links">
+            <a href="./index.html">Главная</a>
+            <a href="./contacts.html">Контакты</a>
+            <a href="mailto:hello@mysite.dev">hello@mysite.dev</a>
+          </div>
+        </div>
       </footer>
     </div>
 

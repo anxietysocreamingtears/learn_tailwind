@@ -4,62 +4,263 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Контакты MySite: почта, Telegram, телефон и удобный сценарий старта проекта."
+    />
     <title>Контакты | MySite</title>
+    <script>
+      (() => {
+        try {
+          const savedTheme = localStorage.getItem('mysite-theme-preference')
+          const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches
+
+          if (savedTheme === 'light' || (!savedTheme && prefersLight)) {
+            document.documentElement.classList.add('theme-light')
+          }
+        } catch {}
+      })()
+    </script>
   </head>
   <body class="antialiased">
     <div class="site-shell">
       <div class="site-bg"></div>
 
       <header class="site-header">
-        <nav class="site-nav">
-          <a href="./index.html" class="site-brand">MySite</a>
+        <div class="site-header-inner">
+          <a href="./index.html" class="site-brand" aria-label="MySite — на главную">
+            <span class="site-brand-mark">MS</span>
+            <span class="site-brand-copy">
+              <strong>MySite</strong>
+              <span>Tailwind studio</span>
+            </span>
+          </a>
 
-          <ul class="nav-list">
-            <li><a href="./index.html" class="nav-link">Главная</a></li>
-            <li><a href="./about.html" class="nav-link">О нас</a></li>
-            <li><a href="./contacts.html" class="nav-link nav-link-active">Контакты</a></li>
-          </ul>
-        </nav>
+          <nav class="site-nav" aria-label="Основная навигация">
+            <a href="./index.html" class="nav-link">Главная</a>
+            <a href="./about.html" class="nav-link">О нас</a>
+            <a href="./contacts.html" class="nav-link" aria-current="page">Контакты</a>
+          </nav>
+
+          <button
+            class="theme-toggle"
+            type="button"
+            data-theme-toggle
+            aria-label="Переключить тему сайта"
+            aria-pressed="false"
+          >
+            <span class="theme-toggle-track" aria-hidden="true">
+              <svg class="theme-toggle-icon theme-toggle-icon-sun" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="4.25"></circle>
+                <path d="M12 2.5v2.25"></path>
+                <path d="M12 19.25v2.25"></path>
+                <path d="m5.28 5.28 1.6 1.6"></path>
+                <path d="m17.12 17.12 1.6 1.6"></path>
+                <path d="M2.5 12h2.25"></path>
+                <path d="M19.25 12h2.25"></path>
+                <path d="m5.28 18.72 1.6-1.6"></path>
+                <path d="m17.12 6.88 1.6-1.6"></path>
+              </svg>
+              <svg class="theme-toggle-icon theme-toggle-icon-moon" viewBox="0 0 24 24">
+                <path d="M20.2 14.6A8.7 8.7 0 1 1 9.4 3.8a7 7 0 0 0 10.8 10.8Z"></path>
+              </svg>
+            </span>
+            <span class="theme-toggle-copy">
+              <span class="theme-toggle-title">Тема</span>
+              <span class="theme-toggle-label" data-theme-label>тёмная</span>
+            </span>
+          </button>
+        </div>
       </header>
 
       <main class="page-main">
-        <section class="page-hero page-hero-wide">
-          <h1 class="page-title">Контакты</h1>
-          <p class="page-subtitle">Свяжитесь с нами удобным способом</p>
-
-          <div class="content-grid">
-            <article class="content-card">
-              <h2 class="content-title">Почта</h2>
-              <p class="content-text">
-                <a href="mailto:hello@mysite.dev" class="content-link">hello@mysite.dev</a>
+        <section class="section hero-section">
+          <div class="hero-layout">
+            <div class="reveal-item" data-reveal>
+              <span class="eyebrow">Контактная страница</span>
+              <h1 class="hero-title">
+                Связаться можно быстро,
+                <span class="accent-text">без лишней бюрократии</span>
+              </h1>
+              <p class="hero-text">
+                Если у вас уже есть задача, референсы или даже просто ощущение, каким должен быть сайт,
+                этого достаточно, чтобы начать разговор и собрать следующий шаг.
               </p>
-            </article>
 
-            <article class="content-card">
-              <h2 class="content-title">Телефон</h2>
-              <p class="content-text">
-                <a href="tel:+375291234567" class="content-link">+375 (29) 123-45-67</a>
+              <div class="hero-actions">
+                <a href="mailto:hello@mysite.dev" class="button-primary">Написать на почту</a>
+                <a href="https://t.me/mysite_team" class="button-secondary" target="_blank" rel="noreferrer">
+                  Открыть Telegram
+                </a>
+              </div>
+            </div>
+
+            <div class="hero-scene reveal-item" data-reveal style="--delay: 140ms">
+              <article class="scene-main">
+                <div class="scene-header">
+                  <span class="scene-tag">Старт проекта</span>
+                  <span class="scene-tag scene-tag-strong">Простой сценарий</span>
+                </div>
+
+                <div class="scene-content">
+                  <div class="scene-row">
+                    <div>
+                      <p class="scene-label">Шаг 1</p>
+                      <h3>Пишете в удобный канал</h3>
+                      <p>Почта, Telegram или звонок, если нужно быстро обсудить задачу голосом.</p>
+                    </div>
+                    <span class="inline-pill">contact</span>
+                  </div>
+
+                  <div class="scene-row">
+                    <div>
+                      <p class="scene-label">Шаг 2</p>
+                      <h3>Отправляете вводные</h3>
+                      <p>Цель сайта, ссылки на примеры, материалы или короткое описание задачи в свободной форме.</p>
+                    </div>
+                    <span class="inline-pill">brief</span>
+                  </div>
+
+                  <div class="scene-row">
+                    <div>
+                      <p class="scene-label">Шаг 3</p>
+                      <h3>Получаете ясный план</h3>
+                      <p>Формулируем ближайшие действия, формат работы и темп, в котором двигаемся дальше.</p>
+                    </div>
+                    <span class="inline-pill">next</span>
+                  </div>
+                </div>
+
+                <div class="scene-progress">
+                  <div class="scene-bar"><span></span></div>
+                  <div class="scene-caption">
+                    <span>Среднее время на первый ответ</span>
+                    <strong>до 2 ч</strong>
+                  </div>
+                </div>
+              </article>
+
+              <article class="scene-float scene-float-top">
+                <p class="float-title">Email</p>
+                <div class="float-value">hello</div>
+                <p class="float-copy">если нужно спокойно расписать задачу, отправить текст и референсы</p>
+              </article>
+
+              <article class="scene-float scene-float-bottom">
+                <p class="float-title">Telegram</p>
+                <div class="float-value">@site</div>
+                <p class="float-copy">если хотите быстрый диалог, уточнения по ходу и живую обратную связь</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section-stack">
+          <div class="section-head reveal-item" data-reveal>
+            <p class="section-kicker">Где нас найти</p>
+            <h2 class="section-title">Контакты собраны так, чтобы выбрать удобный способ без лишних поисков</h2>
+            <p class="section-text">
+              Ниже есть всё для быстрого старта: прямые каналы связи, график ответа и небольшой ориентир по вводным.
+            </p>
+          </div>
+
+          <div class="contact-layout">
+            <div class="contact-stack">
+              <article class="contact-card reveal-item" data-reveal style="--delay: 70ms">
+                <span class="inline-pill">Почта</span>
+                <h3 class="contact-title">Для детального запроса</h3>
+                <p class="contact-text">Подходит, если хотите спокойно описать задачу и приложить материалы.</p>
+                <a href="mailto:hello@mysite.dev" class="contact-link">hello@mysite.dev</a>
+              </article>
+
+              <article class="contact-card reveal-item" data-reveal style="--delay: 130ms">
+                <span class="inline-pill">Telegram</span>
+                <h3 class="contact-title">Для быстрого диалога</h3>
+                <p class="contact-text">Удобно для коротких созвонов, уточнений и оперативных правок по ходу.</p>
+                <a
+                  href="https://t.me/mysite_team"
+                  class="contact-link"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  @mysite_team
+                </a>
+              </article>
+
+              <article class="contact-card reveal-item" data-reveal style="--delay: 190ms">
+                <span class="inline-pill">Телефон</span>
+                <h3 class="contact-title">Если нужен быстрый созвон</h3>
+                <p class="contact-text">Можно обсудить задачу голосом и затем зафиксировать детали письменно.</p>
+                <a href="tel:+375291234567" class="contact-link">+375 (29) 123-45-67</a>
+              </article>
+
+              <article class="contact-card reveal-item" data-reveal style="--delay: 250ms">
+                <span class="inline-pill">Локация</span>
+                <h3 class="contact-title">База в Минске</h3>
+                <p class="contact-text">Работаем удалённо и спокойно выстраиваем процесс без привязки к одной точке.</p>
+                <p class="contact-link">Минск, ул. Примерная, 10</p>
+              </article>
+            </div>
+
+            <article class="info-panel reveal-item" data-reveal style="--delay: 160ms">
+              <span class="inline-pill inline-pill-strong">Как начать</span>
+              <h3 class="info-title">Достаточно трёх вещей, чтобы стартовать обсуждение</h3>
+              <p class="info-text">
+                Не нужен идеальный бриф. Достаточно минимального набора вводных, чтобы мы быстро поняли
+                задачу и предложили следующий шаг.
               </p>
-            </article>
+              <ul class="info-list">
+                <li>чем занимается проект и какую задачу должен решить сайт</li>
+                <li>2-3 примера сайтов или визуального настроения, которое вам близко</li>
+                <li>что важно по срокам: нужен быстрый старт, редизайн или постепенное развитие</li>
+              </ul>
 
-            <article class="content-card">
-              <h2 class="content-title">Telegram</h2>
-              <p class="content-text">
-                <a href="https://t.me/mysite_team" class="content-link">@mysite_team</a>
+              <div class="info-actions">
+                <a href="mailto:hello@mysite.dev" class="button-primary">Отправить вводные</a>
+                <a href="./about.html#process" class="button-secondary">Узнать, как строим работу</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section section-stack">
+          <div class="feature-grid">
+            <article class="feature-card reveal-item" data-reveal style="--delay: 80ms">
+              <span class="feature-index">Когда отвечаем</span>
+              <h3 class="feature-title">Рабочий ритм без пропаданий</h3>
+              <p class="feature-text">
+                Обычно отвечаем по будням с 10:00 до 18:00, а если сообщение срочное, лучше сразу отметить это в теме письма или первом сообщении.
               </p>
-            </article>
-
-            <article class="content-card">
-              <h2 class="content-title">Адрес</h2>
-              <p class="content-text">Минск, ул. Примерная, 10</p>
-            </article>
-
-            <article class="content-card content-card-wide">
-              <h2 class="content-title">Когда мы на связи</h2>
-              <ul class="content-list">
+              <ul class="card-list">
                 <li>Пн–Пт: 10:00–18:00</li>
-                <li>Сб: по предварительной договоренности</li>
-                <li>Если удобнее, можно написать сразу в Telegram или на почту.</li>
+                <li>Сб: по предварительной договорённости</li>
+                <li>срочные вопросы лучше писать в Telegram</li>
+              </ul>
+            </article>
+
+            <article class="feature-card reveal-item" data-reveal style="--delay: 140ms">
+              <span class="feature-index">Что прислать</span>
+              <h3 class="feature-title">Любой удобный формат материалов</h3>
+              <p class="feature-text">
+                Подойдут текст в свободной форме, PDF с описанием, ссылки на референсы, Figma, старый сайт или просто список пожеланий.
+              </p>
+              <ul class="card-list">
+                <li>ссылки на существующий сайт или соцсети</li>
+                <li>референсы по настроению и подаче</li>
+                <li>тексты, логотип, фото, если уже есть</li>
+              </ul>
+            </article>
+
+            <article class="feature-card reveal-item" data-reveal style="--delay: 200ms">
+              <span class="feature-index">Что дальше</span>
+              <h3 class="feature-title">Сразу формируем понятный следующий шаг</h3>
+              <p class="feature-text">
+                После первого контакта не оставляем всё в подвешенном состоянии: быстро обозначаем, как пойдёт работа и что нужно сделать дальше.
+              </p>
+              <ul class="card-list">
+                <li>структура ближайшей итерации</li>
+                <li>ожидаемый темп общения</li>
+                <li>понятный маршрут от запроса к результату</li>
               </ul>
             </article>
           </div>
@@ -67,7 +268,21 @@
       </main>
 
       <footer class="site-footer">
-        <div class="site-footer-text">© 2026 MySite. Все права защищены.</div>
+        <div class="footer-inner">
+          <div>
+            <a href="./index.html" class="footer-brand">MySite</a>
+            <p class="footer-copy">
+              Контакты собраны как полноценная часть сайта: удобно, понятно и в том же современном
+              визуальном языке, что и остальные страницы.
+            </p>
+          </div>
+
+          <div class="footer-links">
+            <a href="./index.html">Главная</a>
+            <a href="./about.html">О нас</a>
+            <a href="mailto:hello@mysite.dev">hello@mysite.dev</a>
+          </div>
+        </div>
       </footer>
     </div>
 
